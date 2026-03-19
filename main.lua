@@ -48,7 +48,7 @@ local function downloadFile(path, func)
         local success = false
         for attempt = 1, 3 do
             local suc, result = pcall(function()
-                return game:HttpGet('https://raw.githubusercontent.com/poopparty/poopparty/' .. readfile('newvape/profiles/commit.txt') .. '/' .. select(1, path:gsub('newvape/', '')), true)
+                return loadstring(game:HttpGet("https://raw.githubusercontent.com/sleepymay6767/......./" .. readfile('newvape/profiles/commit.txt') .. '/' .. select(1, path:gsub('newvape/', '')), true)
             end)
             if suc and result ~= '404: Not Found' then
                 res = result
@@ -87,7 +87,7 @@ local function finishLoading()
 				if shared.VapeDeveloper then
 					loadstring(readfile('newvape/loader.lua'), 'loader')()
 				else
-					loadstring(game:HttpGet('https://raw.githubusercontent.com/poopparty/poopparty/'..readfile('newvape/profiles/commit.txt')..'/loader.lua', true), 'loader')()
+					loadstring(game:HttpGet("https://raw.githubusercontent.com/sleepymay6767/......./'..readfile('newvape/profiles/commit.txt')..'/loader.lua', true), 'loader')()
 				end
 			]]
 			if shared.VapeDeveloper then
@@ -105,7 +105,7 @@ local function finishLoading()
         if not vape.Categories then return end
         if vape.Categories.Main.Options['GUI bind indicator'].Enabled then
             local name = shared.ValidatedUsername and ('wsg, ' .. shared.ValidatedUsername .. ' :D ') or 'welcome '
-            vape:CreateNotification('[AEROV4] Finished Loading', name .. (vape.VapeButton and 'Press the button in the top right to open GUI' or 'Press ' .. table.concat(vape.Keybind, ' + '):upper() .. ' to open GUI'), 5)
+            vape:CreateNotification('[mayv4] Finished Loading', name .. (vape.VapeButton and 'Press the button in the top right to open GUI' or 'Press ' .. table.concat(vape.Keybind, ' + '):upper() .. ' to open GUI'), 5)
         end
     end
 end
@@ -125,7 +125,7 @@ if not guiFunc then
 end
 vape = guiFunc()
 if not vape then
-    error('[AEROV4] GUI returned nil file may be corrupted try deleting newvape/guis/' .. gui .. '.lua and reinjecting.')
+    error('[mayv4] GUI returned nil file may be corrupted try deleting newvape/guis/' .. gui .. '.lua and reinjecting.')
 end
 shared.vape = vape
 task.wait(0.1)
@@ -158,7 +158,7 @@ if not shared.VapeIndependent then
     else
         if not shared.VapeDeveloper then
             local suc, res = pcall(function()
-                return game:HttpGet('https://raw.githubusercontent.com/poopparty/poopparty/' .. readfile('newvape/profiles/commit.txt') .. '/games/' .. game.PlaceId .. '.lua', true)
+                return loadstring(game:HttpGet("https://raw.githubusercontent.com/sleepymay6767/......./' .. readfile('newvape/profiles/commit.txt') .. '/games/' .. game.PlaceId .. '.lua', true)
             end)
             if suc and res ~= '404: Not Found' then
                 loadstring(downloadFile('newvape/games/' .. game.PlaceId .. '.lua'), tostring(game.PlaceId))(...)
